@@ -1,18 +1,20 @@
 var generateBtn = document.querySelector("#generate");
-var uppercase; 
-var lowercase; 
-var specialChar; 
-var number; 
+var uppercase = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "\:", "\;", ".", "/", "<", "=", ">", "?", "@", ",", "-", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+var choices = (uppercase, lowercase, number, specialChar);
 
-var choices;
 
-uppercase = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
-lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "\:", "\;", ".", "/", " < ", "=", " > ", " ? ", "@", ",", "-", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+generateBtn.addEventListener("click", function () {
+  pw = generatePassword();
+  document.getElementById("password").placeholder = pw;
+});
+
+
 
 // Write password to the #password input
-function getLowercase() {
+/* function getLowercase() {
   return lowerCase[Math.floor(Math.random() * lowerCase.length)];
 }
 
@@ -27,54 +29,57 @@ function getNumber() {
 function getSpecialChar() {
   return specialChar[Math.floor(Math.random() * specialChar.length)];
 }
-
+*/
 
 
 function generatePassword() {  
-  
-
-  enter = parseInt(prompt("Please input a number between 8 and 128.")); 
     
+  enter = parseInt(prompt("Please input a number between 8 and 128.")); 
     console.log("Character length approved");
-
+  
     if (!enter) {
       alert("Please enter a number between 8 and 128. This form cannot be blank.")
           console.log("Character length approved");
-
     }
     
     else if (enter < 8 || enter > 128 || (isNaN(enter)) || enter == ""){
       alert("All conditions must be accepted by pressing OK. Please click Generate Password and complete the form again.");
     }
-    
+
+    if (!specialChar) {
+      console.log("Special characters not included");
+      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")
+
+    }
+
     else {   
     specialChar = (confirm("Do you want to include special characters? If so, click OK to proceed. If not, click cancel."));
     }
     console.log("Special characters included");
-    
-    if (!specialChar) {
-      console.log("Special characters not included");
-      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")
-    }
+
+    if (!uppercase) {
+      console.log("Uppercase letters not included");
+      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")  
+    }     
 
     else {
     uppercase = confirm("Do you want to include uppercase letters? If so, click OK to proceed. If not, click cancel.")
     };
     console.log("Uppercase letters included");
-    if (!uppercase) {
-      console.log("Uppercase letters not included");
-      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")  
-    }
 
+    if (!lowercase) { 
+      console.log("Lowercase letters not included");
+      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")
+    }
+    
     else {
     lowercase = confirm("Do you want to include lowercase letters? If so, click OK to proceed. If not, click cancel.")
     };
     console.log("Lowercase letters included");
 
-    if (!lowercase) { 
+    if (!number) {
       console.log("Lowercase letters not included");
       alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")
-    
     }
     
     else {
@@ -82,36 +87,36 @@ function generatePassword() {
     };
     console.log("Numbers Included");
 
-    if (!number) {
-      console.log("Lowercase letters not included");
-      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")
+
+    var password = choices.concat()
+
+    if (specialChar && number && uppercase && lowercase) {
+      password = choices.concat();
+      return password
+      console.log("This only seems to want to print out motherf*cking special characters.");
     }
+
     
-    else if (specialChar && number && uppercase && lowercase) {
-
-      choices = password.concat(specialChar, number, uppercase, lowercase);
-  }
-
-    for (var i = 0; i < enter; i++) {
-      var pickChoices = choices[Math.floor(Math.random() * choices.length)];
-      password.push(pickChoices);
-  }
-
+      for (var i = 0; i < enter; i++) {
+        var pickChoices = [Math.floor(Math.random() * choices.length)];
+        password.push(pickChoices);
+      }
+    
+    var pw = password.join("");
+    UserInput(pw);
+    return pw;
   
-    var ps = password.join("");
-    UserInput(ps);
-    return ps;
   }
-  
-  function UserInput(ps) {
-    document.getElementById("password").textContent = ps;
+  function UserInput(pw) {
+    document.getElementById("password").textArea = pw;
   }
 
 
-  
+  // Add event listener to generate button
 
 
-  var password = [];
+
+
   
   /* else {
     if (specialChar == false) {
@@ -154,13 +159,3 @@ function generatePassword() {
 
 
 
-
-
-  // Add event listener to generate button
-var get = document.querySelector("#generate");
-
-generateBtn.addEventListener("click", generatePassword);
-get.addEventListener("click", function () {
-  ps = generatePassword();
-  document.getElementById("password").placeholder = ps;
-});
