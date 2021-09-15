@@ -85,7 +85,7 @@ function generatePassword() {
     potChar=potChar.concat(lowercase);
     console.log("Pulling random lowercase letter")
     };
-    
+    // The uppercase letters seem to come up less often than do the other options
     if (useUppercase===true){
     password.push(getRandomCharacter(uppercase));
     potChar=potChar.concat(uppercase);
