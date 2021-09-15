@@ -1,161 +1,98 @@
 var generateBtn = document.querySelector("#generate");
+// establishing variables to be included in the password
 var uppercase = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "\:", "\;", ".", "/", "<", "=", ">", "?", "@", ",", "-", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
-var choices = (uppercase, lowercase, number, specialChar);
 
-
-generateBtn.addEventListener("click", function () {
-  pw = generatePassword();
-  document.getElementById("password").placeholder = pw;
-});
-
-
-
-// Write password to the #password input
-/* function getLowercase() {
-  return lowerCase[Math.floor(Math.random() * lowerCase.length)];
-}
-
-function getUppercase() {
-  return upperCase[Math.floor(Math.random() * upperCase.length)];
-}
-
-function getNumber() {
-  return number[Math.floor(Math.random() * number.length)];
-}
-
-function getSpecialChar() {
-  return specialChar[Math.floor(Math.random() * specialChar.length)];
-}
-*/
-
-
-function generatePassword() {  
-    
+// begin generate password function
+function generatePassword() {
+  // defining password variable and potential characters variable
+  var password = [];
+  var potChar = [];
   enter = parseInt(prompt("Please input a number between 8 and 128.")); 
     console.log("Character length approved");
-  
     if (!enter) {
       alert("Please enter a number between 8 and 128. This form cannot be blank.")
           console.log("Character length approved");
     }
-    
-    else if (enter < 8 || enter > 128 || (isNaN(enter)) || enter == ""){
-      alert("All conditions must be accepted by pressing OK. Please click Generate Password and complete the form again.");
+    if(enter===NaN || enter < 8 || enter > 128 || enter===""){
+      alert("You must enter a valid number between 8 and 128. The form cannot be blank.");
+      console.log("Enter a valid number")
+      return;
+    }
+    if (!uppercase && !lowercase && !number && !specialChar) {
+      console.log("Uppercase letters included");
+      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.") 
+      return
+
     }
 
-    if (!specialChar) {
+    else { 
+      useSpecialChar=confirm("Do you want to include special characters? If so, click OK to proceed. If not, click cancel.")
       console.log("Special characters not included");
-      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")
-
-    }
-
-    else {   
-    specialChar = (confirm("Do you want to include special characters? If so, click OK to proceed. If not, click cancel."));
-    }
-    console.log("Special characters included");
-
-    if (!uppercase) {
-      console.log("Uppercase letters not included");
-      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")  
-    }     
-
-    else {
-    uppercase = confirm("Do you want to include uppercase letters? If so, click OK to proceed. If not, click cancel.")
+      useUppercase=confirm("Do you want to include uppercase letters? If so, click OK to proceed. If not, click cancel.")
+      console.log("Uppercase letters included");
+      useLowercase=confirm("Do you want to include lowercase letters? If so, click OK to proceed. If not, click cancel.")
+      console.log("Lowercase letters included");
+      useNumber=confirm("Do you want to include numbers? If so, click OK to proceed. If not, click cancel.")
+      console.log("Numbers included");
     };
-    console.log("Uppercase letters included");
-
-    if (!lowercase) { 
-      console.log("Lowercase letters not included");
-      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")
+    
+    if (useNumber===true){
+    password.push(getRandomCharacter(number));
+    potChar=potChar.concat(number);
+    console.log("Pulling random number")
     }
     
-    else {
-    lowercase = confirm("Do you want to include lowercase letters? If so, click OK to proceed. If not, click cancel.")
+    if (useSpecialChar===true){
+    password.push(getRandomCharacter(specialChar));
+    potChar=potChar.concat(specialChar);
+    console.log("Pulling random character")
+    }
+
+    if (useLowercase===true) {
+    password.push(getRandomCharacter(lowercase));
+    potChar=potChar.concat(lowercase);
+    console.log("Pulling random lowercase letter")
     };
-    console.log("Lowercase letters included");
-
-    if (!number) {
-      console.log("Lowercase letters not included");
-      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.")
-    }
     
-    else {
-    number = confirm("Do you want to include numbers? Click OK to proceed. If not, click cancel.")
+    if (useUppercase===true){
+      password.push(getRandomCharacter(uppercase));
+      potChar=potChar.concat(uppercase);
+      console.log("Pulling random upper case letter")
     };
-    console.log("Numbers Included");
+    
+
+    var enter = enter-4;
+    for (var i = 0; i <  enter; i++) {
+      password.push(getRandomCharacter(potChar))
+    };
+    return password.join("");
+  };
 
 
-    var password = choices.concat()
 
-    if (specialChar && number && uppercase && lowercase) {
-      password = choices.concat();
-      return password
-      console.log("This only seems to want to print out motherf*cking special characters.");
-    }
 
     
-      for (var i = 0; i < enter; i++) {
-        var pickChoices = [Math.floor(Math.random() * choices.length)];
-        password.push(pickChoices);
-      }
-    
-    var pw = password.join("");
-    UserInput(pw);
-    return pw;
-  
+    // Random characters fxn
+    function getRandomCharacter(choice) {
+    var randomCharacter=choice[Math.floor(Math.random()*choice.length)];
+    return randomCharacter;
+    };
+
+  function writePassword() {
+  var password = generatePassword();
+  var passwordTxt = document.querySelector("#password");
+
+  passwordTxt.value = password;
+
   }
-  function UserInput(pw) {
-    document.getElementById("password").textArea = pw;
-  }
+
 
 
   // Add event listener to generate button
-
-
-
-
-  
-  /* else {
-    if (specialChar == false) {
-      prompt("All conditions must be accepted by pressing OK. Please click Generate Password and complete the form again.");
-    }
-  };
-
-    if (confirm("Do you want to include numbers? Click OK to proceed. If not, click cancel.")){
-    if (number == true) {
-        password += getNumber();
-    }
-    console.log("Numbers Included");
-    }
-  };
-    if (confirm("Do you want to include uppercase letters? Click OK to proceed. If not, click cancel.")){
-    if (upperCase == true) {
-        password += getUppercase();
-    }
-    console.log("Uppercase letters included");
-  };
-  if (confirm("Do you want to include lowercase letters? Click OK to proceed. If not, click cancel.")){
-    if (lowerCase == true) {
-        password += getLowercase();
-    }
-    console.log("Lowercase letters included");
-  };
-*/
-  /*  for (let i = password.length; i < passwordLength; i++) {
-      const x = generatePassword();
-      password += x;
-    }
-  */
-   // var password
-    // password.innerText = password;
-    // };
-// generate password stuff will come at the end
-// remind that this may change - an error msg is needed for any of these conditions
-// document.getElementById("password").innerHTML = finalPassword;
-
+  generateBtn.addEventListener("click", writePassword);
 
 
 
