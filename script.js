@@ -42,7 +42,7 @@ function generatePassword() {
     }
     // Created an else if segment to control for which variables are collected for each prompt
     /* I felt like I was starting to understand the functionality a bit better after working through this a couple times, so I added the if (useVariable===false) statements to verify that they can still be contained within an else, and the result is just one else with a lot of ifs.
-    After doing so, I realized that yes, these have a function, and sometimes it can seem tedious to write out the opposite, it's an important way to control for any input that a potential user might make. 
+    After doing so, I realized that yes, these have a function, and sometimes it can seem tedious to write out the opposite, but it's an important way to control for any input that a potential user might make. 
     I am sure there is a cleaner way to do this, but the logic holds up, at least to me. */
     else { 
       useSpecialChar=confirm("Do you want to include special characters? If so, click OK to proceed. If not, click cancel.")
@@ -103,7 +103,6 @@ function generatePassword() {
     potChar=potChar.concat(lowercase);
     console.log("Pulling random lowercase letter")
     };
-    // The uppercase letters seem to come up less often than do the other options
 
     // A quirk that met the requirements, as there are 4 values in the "enter" array - not sure how to phrase the variable in another way, but if < 4 inputs are selected, the generated password will be correspondingly 1 character lower
     var enter = enter-4;
