@@ -33,9 +33,9 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
-When the generate password button is clicked, it initiates a series of prompts for password criteria, including the length of the password and which types of characters are to be included in the password.
+When the generate password button is clicked it initiates a series of prompts for password criteria, including the length of the password and which types of characters are to be included in the password.
 
-I chose to make the requirement that all 4 password criteria must be included in order for the password to generate - when one or more of these is ommited, the password will be one fewer character for each condition that is ommitted. If none are included, the password will not generate.
+I chose to make the requirement that all 4 password criteria must be included in order for the password to generate - when one or more of these is omited, the password will be one fewer character for each condition that is omitted. If none are included, the password will not generate.
 
 ## Mock-Up
 
