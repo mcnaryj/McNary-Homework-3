@@ -10,6 +10,7 @@ function generatePassword() {
   // defining password variable and potential characters variable
   var password = [];
   var potChar = [];
+  // begin prompt (found a couple ways to do this, but parseInt seemed interesting so I've left it)
   enter = parseInt(prompt("Please input a number between 8 and 128.")); 
     console.log("Character length approved");
     if (!enter) {
@@ -30,13 +31,37 @@ function generatePassword() {
 
     else { 
       useSpecialChar=confirm("Do you want to include special characters? If so, click OK to proceed. If not, click cancel.")
+      if (useSpecialChar===true) {
+        console.log("Special characters included")
+      }
+      if (useSpecialChar===false) { 
+      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.");
       console.log("Special characters not included");
+      }
       useUppercase=confirm("Do you want to include uppercase letters? If so, click OK to proceed. If not, click cancel.")
-      console.log("Uppercase letters included");
+      if (useUppercase===true){
+      console.log("Uppercase letters included")
+      }
+      if (useUppercase===false) {
+      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.");
+      console.log("Uppercase letters not included");
+      } 
       useLowercase=confirm("Do you want to include lowercase letters? If so, click OK to proceed. If not, click cancel.")
-      console.log("Lowercase letters included");
+      if (useLowercase===true) {
+      console.log("Lowercase letters included")
+      }
+      if (useLowercase===false) {
+      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.");
+      console.log("Lowercase letters not included");
+      }
       useNumber=confirm("Do you want to include numbers? If so, click OK to proceed. If not, click cancel.")
-      console.log("Numbers included");
+      if (useNumber===true) {
+      console.log("Numbers included")  
+      }
+      if (useNumber===false) {
+      alert("The password must include numbers, special characters, uppercase letters and lowercase letters.");
+      console.log("Numbers not included");
+      }
     };
     
     if (useNumber===true){
@@ -58,9 +83,9 @@ function generatePassword() {
     };
     
     if (useUppercase===true){
-      password.push(getRandomCharacter(uppercase));
-      potChar=potChar.concat(uppercase);
-      console.log("Pulling random upper case letter")
+    password.push(getRandomCharacter(uppercase));
+    potChar=potChar.concat(uppercase);
+    console.log("Pulling random upper case letter")
     };
     
 
