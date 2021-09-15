@@ -35,15 +35,11 @@ THEN the password is either displayed in an alert or written to the page
 ```
 When the generate password button is clicked, it initiates a series of prompts for password criteria, including the length of the password, which types of characters are to be included in the password.
 
-I chose to make the requirement that all 4 password criteria must be included in order for the password to generate.
-
-The image and icon attributes have been amended to include alt text, and the header is arranged in sequential order.
-
-The title is the name of the company. I have elected to use this title as companies like Google will have that be the title (or new tab), and the one word should be enough to inform the user about the page.
+I chose to make the requirement that all 4 password criteria must be included in order for the password to generate - when one+ of these is ommited, the password will be one fewer character for each condition that is ommitted. If none are included, the password will not generate.
 
 ## Mock-Up
 
-The below image demonstrates the appearance and functionality of the webpage, 
+The below image demonstrates the appearance and functionality of the webpage, [Generate a password!](assets/images/Password Generator Demo.gif)
 
 ## Notes
 
