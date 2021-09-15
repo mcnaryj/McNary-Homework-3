@@ -1,9 +1,16 @@
 var generateBtn = document.querySelector("#generate");
 // establishing variables to be included in the password - saw the split option but this was easier to conceptualize, at least for the time being
-var uppercase = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "\:", "\;", ".", "/", "<", "=", ">", "?", "@", ",", "-", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+/* Found this function for mapping lowercase letters to uppercase letters. My code was only generating the uppercase letter "Z" in the password, which is hardly random. The below code converts the lowercase letters into capital letters. After testing, the password does indeed have a random mix of uppercase letters. Yay! */
+var choice;
+var toUpper = function (x) {
+  return x.toUpperCase();
+};
+// Defined the uppercase variable according the function above
+var uppercase = lowercase.map(toUpper);
 
 // Begin generate password function
 function generatePassword() {
@@ -80,18 +87,19 @@ function generatePassword() {
     console.log("Pulling random special character")
     }
 
+    if (useUppercase===true){
+    password.push(getRandomCharacter(uppercase));
+    potChar=potChar.concat(uppercase);
+      console.log("Pulling random uppercase letter")
+    }
+      
     if (useLowercase===true) {
     password.push(getRandomCharacter(lowercase));
     potChar=potChar.concat(lowercase);
     console.log("Pulling random lowercase letter")
     };
     // The uppercase letters seem to come up less often than do the other options
-    if (useUppercase===true){
-    password.push(getRandomCharacter(uppercase));
-    potChar=potChar.concat(uppercase);
-    console.log("Pulling random uppercase letter")
-    };
-    
+
     // A quirk that met the requirements, as there are 4 values in the "enter" array - not sure how to phrase the variable in another way, but if < 4 inputs are selected, the generated password will be correspondingly 1 character lower.
     var enter = enter-4;
     for (var i = 0; i <  enter; i++) {
@@ -117,10 +125,8 @@ function generatePassword() {
   var passwordTxt = document.querySelector("#password");
 
   passwordTxt.value = password;
-
+  
   }
-
-
 
   // Event listener added to generate button
   generateBtn.addEventListener("click", writePassword);
