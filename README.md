@@ -9,7 +9,7 @@ The objective of this assignment, as per the readme, is to create an application
 
 ## Installation/Viewing the Files
 
-Download the files contained in the McNary-Homework-3 repository, either through Github or by making a clone of the repository and downloading it locally. Once downloaded, open the file index.html to view the webpage.
+Download the files contained in the McNary-Homework-3 repository, either through Github or by making a clone of the repository and downloading it locally. Once downloaded, open the file index.html to view the webpage. The published site can be found here: https://mcnaryj.github.io/McNary-Homework-3/.
 
 
 ## User Story
