@@ -11,6 +11,8 @@ After testing, the password does indeed have a random mix of uppercase letters. 
 var choice;
 var toUpper = function (x) {
   return x.toUpperCase();
+  /* After I placed the code, I found that it wouldn't work because this is referring to a specific method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase.
+  / Once that was changed, the desired result was achieved. */
 };
 // Defined the uppercase variable according the function above
 var uppercase = lowercase.map(toUpper);
@@ -103,7 +105,8 @@ function generatePassword() {
     console.log("Pulling random lowercase letter")
     };
 
-    // A quirk that met the requirements, as there are 4 values in the "enter" array - not sure how to phrase the variable in another way, but if < 4 inputs are selected, the generated password will be correspondingly 1 character lower
+    /* A quirk that met the requirements, as there are 4 values in the "enter" array. 
+     I'm not sure how to phrase the variable in another way, but if < 4 inputs are selected, the generated password will be correspondingly 1 character lower. */
     var enter = enter-4;
     for (var i = 0; i <  enter; i++) {
       password.push(getRandomCharacter(potChar))
