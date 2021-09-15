@@ -39,9 +39,11 @@ I chose to make the requirement that all 4 password criteria must be included in
 
 ## Mock-Up
 
-The below image demonstrates the appearance and functionality of the webpage, [Generate a password!](assets/images/Password Generator Demo.gif)
+The below image demonstrates the appearance and functionality of the webpage, ![Check it out!](assets/images/Password_Generator_Demo.gif)
 
 ## Notes
+
+I got a lot of help from a lot of people on this one, and I frankensteined the code according to the features that I liked from each person's attempt. This project has helped reinforce that collaboration is the key to getting through this!
 
 
 
