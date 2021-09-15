@@ -13,7 +13,7 @@ Download the files contained in the McNary-Homework-3 repository, either through
 
 
 ## User Story
-A company would like to create a password generate that allows employees to generate random passwords.
+A company would like to create a password generator that allows employees to generate random passwords.
 
 ## Acceptance Criteria
 ```
