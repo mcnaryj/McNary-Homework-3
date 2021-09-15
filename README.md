@@ -4,7 +4,7 @@ The purpose of this README is to explain the function of the password generator,
 
 # Password Generator
 
-The objective of this assignment, as per the readme, is to create an applicate that allows employees to generate random passwords based on the selected criteria. The app runs in the browser, and features dyanmically updated html and css features powered by the js code.
+The objective of this assignment, as per the readme, is to create an applicate that allows employees to generate random passwords based on the selected criteria. The app runs in the browser, and features dynamically updated html and css features powered by the js code.
 
 
 ## Installation/Viewing the Files
