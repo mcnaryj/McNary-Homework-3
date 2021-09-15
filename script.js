@@ -106,7 +106,7 @@ function generatePassword() {
     };
 
     /* A quirk that met the requirements, as there are 4 values in the "enter" array. 
-     I not sure how to phrase the variable in another way, but if < 4 inputs are selected, the generated password will be correspondingly 1 character lower. */
+     I'm not sure how to phrase the variable in another way, but if < 4 inputs are selected, the generated password will be correspondingly 1 character lower. */
     var enter = enter-4;
     for (var i = 0; i <  enter; i++) {
       password.push(getRandomCharacter(potChar))
