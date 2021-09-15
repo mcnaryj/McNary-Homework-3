@@ -4,7 +4,7 @@ The purpose of this README is to explain the function of the password generator,
 
 # Password Generator
 
-The objective of this assignment, as per the readme, is to create an applicate that allows employees to generate random passwords based on the selected criteria. The app runs in the browser, and features dynamically updated html and css features powered by the js code.
+The objective of this assignment, as per the readme, is to create an application that allows employees to generate random passwords based on the selected criteria. The app runs in the browser and features dynamically updated html and css features powered by the js code.
 
 
 ## Installation/Viewing the Files
@@ -35,16 +35,16 @@ THEN the password is either displayed in an alert or written to the page
 ```
 When the generate password button is clicked, it initiates a series of prompts for password criteria, including the length of the password and which types of characters are to be included in the password.
 
-I chose to make the requirement that all 4 password criteria must be included in order for the password to generate - when one+ of these is ommited, the password will be one fewer character for each condition that is ommitted. If none are included, the password will not generate.
+I chose to make the requirement that all 4 password criteria must be included in order for the password to generate - when one or more of these is ommited, the password will be one fewer character for each condition that is ommitted. If none are included, the password will not generate.
 
 ## Mock-Up
 
-The below image demonstrates the appearance and functionality of the webpage:
+The below gif demonstrates the appearance and functionality of the webpage:
  ![Check it out!](/Assets/Images/Password_Generator_Demo.gif)
 
 ## Notes
 
-I got a lot of help from a lot of people on this one, and I frankensteined the code according to the features that I liked from each person's attempt. This project has helped reinforce that collaboration is the key to getting through this!
+I got a lot of help from a lot of people on this one, and my code represents my interpretation of a lot of different ways to go about doing the same thing. This project has helped reinforce that collaboration is the key to getting through this!
 
 
 
