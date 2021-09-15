@@ -15,6 +15,7 @@ var toUpper = function (x) {
 // Defined the uppercase variable according the function above
 var uppercase = lowercase.map(toUpper);
 
+
 // Begin generate password function
 function generatePassword() {
   // Defining password variable and potential characters variable
@@ -38,7 +39,6 @@ function generatePassword() {
       console.log("Uppercase letters included");
       alert("The password must include numbers, special characters, uppercase letters and lowercase letters.") 
       return
-
     }
     // Created an else if segment to control for which variables are collected for each prompt
     /* I felt like I was starting to understand the functionality a bit better after working through this a couple times, so I added the if (useVariable===false) statements to verify that they can still be contained within an else, and the result is just one else with a lot of ifs.
@@ -77,7 +77,6 @@ function generatePassword() {
       alert("The password must include numbers, special characters, uppercase letters and lowercase letters.");
       console.log("Numbers not included");
       }
-
     };
     // Used the "useVariable" to convert the boolean values into the desired result
     if (useNumber===true){
@@ -113,9 +112,6 @@ function generatePassword() {
   };
 
 
-
-
-    
     // Random characters function (got a lot of help on this one)
     function getRandomCharacter(choice) {
     var randomCharacter=choice[Math.floor(Math.random()*choice.length)];
@@ -127,10 +123,9 @@ function generatePassword() {
   function writePassword() {
   var password = generatePassword();
   var passwordTxt = document.querySelector("#password");
-
   passwordTxt.value = password;
-  
   }
+
 
   // Event listener added to generate button
   generateBtn.addEventListener("click", writePassword);
