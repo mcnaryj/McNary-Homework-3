@@ -39,7 +39,7 @@ I chose to make the requirement that all 4 password criteria must be included in
 
 ## Mock-Up
 
-The below gif demonstrates the appearance and functionality of the webpage:
+The below gif demonstrates the appearance and functionality of the password generator:
  ![Check it out!](/Assets/Images/Password_Generator_Demo.gif)
 
 ## Notes
